@@ -1,10 +1,6 @@
 package org;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
+
 public class Calculator {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -16,7 +12,8 @@ public class Calculator {
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
-        }    }
+        }
+    }
 
     public static double evaluate(String expression) throws Exception {
         List<String> postfix = infixToPostfix(expression);
@@ -30,7 +27,8 @@ public class Calculator {
 
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken().trim();
-            if (token.isEmpty()) continue;
+            if (token.isEmpty())
+                continue;
 
             if (isNumber(token)) {
                 output.add(token);
